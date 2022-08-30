@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div className='card-home'>
-            <img className='home__img' src="pokedex-title.png" alt="" />
+            <img className='home__img' src="/pokedex-title.png" alt="" />
             <h1 className='home__h1'>¡Hi Trainer!</h1>
             <p className='home__p'>To start, give me your trainer name</p>
             <form className='home__form' onSubmit={handleSubmit}>
@@ -31,7 +31,7 @@ const Home = () => {
                 <button className='home__btn'>Catch Them All</button>
             </form>
             <footer className='home__footer'>
-                <img className='footer__img' src="src/assets/img/footer-home.png" alt="" />
+                <img className='footer__img' src="/img/footer-home.png" alt="" />
             </footer>
         </div>
     )
