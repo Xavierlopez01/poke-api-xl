@@ -129,6 +129,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2em;
+    margin-bottom: 2em;
 }
 
 /* POKEDEX CARD */
@@ -248,4 +249,33 @@ body {
 .pokemon__card-stat-p:hover {
     transition: transform 200ms ease;
     transform: scale(1.55);
+}
+
+/* SEARCH INPUT */
+.search__form {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.search__input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.search__btn {
+    background-color: #D93F3F;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* SELECT TYPE */
+
+.select-type {
+    padding: 5px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
 }

@@ -17,8 +17,8 @@ const SelectType = ({ setOptionType }) => {
     }
 
     return (
-        <select onChange={handleChange}>
-            <option value="All">All pokemons</option>
+        <select className='select-type' onChange={handleChange}>
+            <option  value="All">All pokemons</option>
             {
                 listTypes?.map(type => (
                     <option key={type.name} value={type.name}>{type.name}</option>
