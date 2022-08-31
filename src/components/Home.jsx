@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { setNameTrainer } from '../store/slices/nameTrainer.slice'
 import pokedexTitle from "../assets/img/pokedex-title.png"
+import footerHome from "../assets/img/footer-home.png"
 
 const Home = () => {
 
@@ -32,7 +33,7 @@ const Home = () => {
                 <button className='home__btn'>Catch Them All</button>
             </form>
             <footer className='home__footer'>
-                <img className='footer__img' src="src/assets/img/footer-home.png" alt="" />
+                <img className='footer__img' src={footerHome} alt="" />
             </footer>
         </div>
     )

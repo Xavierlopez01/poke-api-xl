@@ -16,7 +16,7 @@ const SelectType = ({ optionType, setOptionType, setPokeSearch }) => {
         setOptionType(e.target.value)
         setPokeSearch('')
     }
-
+    
 
     return (
         <select className='select-type' value={optionType} onChange={handleChange}>
