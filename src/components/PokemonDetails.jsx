@@ -8,7 +8,7 @@ const PokemonDetails = () => {
   const { name } = useParams()
 
   useEffect(() => {
-    const URL = `https://pokeapi.co/api/v2/ability/${name}/`
+    const URL = `https://pokeapi.co/api/v2/pokemon/${name}/`
     axios.get(URL)
       .then(res => setPokeDetails(res.data))
       .catch(err => console.log(err))
@@ -19,9 +19,9 @@ const PokemonDetails = () => {
   console.log(name)
 
   return (
-    <div>
-      <h1>{name}</h1>
-    </div>
+    <article>
+      <img src={pokeDetails?.sprites.other.home['front_default']} alt="" />
+    </article>
   )
 }
 
