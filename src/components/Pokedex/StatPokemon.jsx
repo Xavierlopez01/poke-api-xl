@@ -1,6 +1,7 @@
 import React from 'react'
 
 const StatPokemon = ({ infoStat }) => {
+    
     return (
         <li className='pokemon__card-stat'>
             <h4 className='pokemon__card-stat-h4'>{infoStat.stat.name}</h4>

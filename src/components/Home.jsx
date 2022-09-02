@@ -26,15 +26,18 @@ const Home = () => {
     return (
         <div className='card-home'>
             <img className='home__img' src={pokedexTitle} alt="" />
+            <li className='card_home__li'></li>
             <h1 className='home__h1'>¡Hi Trainer!</h1>
             <p className='home__p'>To start, give me your trainer name</p>
             <form className='home__form' onSubmit={handleSubmit}>
                 <input className='home__input' id='name' type="text" placeholder='Name' />
                 <button className='home__btn'>Catch Them All</button>
+                <li className='card_home__li'></li>
             </form>
+            <li className='card_home__li'></li>
             <footer className='home__footer'>
-                <img className='footer__img' src={footerHome} alt="" />
-            </footer>
+            <img className='footer__img' src={footerHome} alt="" />
+        </footer>
         </div>
     )
 }

@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 import PokemonCard from './Pokedex/PokemonCard'
 import SearchInput from './Pokedex/SearchInput'
 import SelectType from './Pokedex/SelectType'
-import pokedexHeader from "../assets/img/pokedex-header.png"
-import pokedex from "../assets/img/pokedex.png"
+import HeaderPokedex from './Pokedex/HeaderPokedex'
+
 
 const Pokedex = () => {
 
@@ -13,6 +13,7 @@ const Pokedex = () => {
   const [pokeSearch, setPokeSearch] = useState()
   const [optionType, setOptionType] = useState('All')
 
+  
 
   const nameTrainer = useSelector(state => state.nameTrainer)
 
@@ -44,16 +45,13 @@ const Pokedex = () => {
     }
   }, [pokeSearch, optionType])
 
-
+// console.log(pokemons)
 
 
   return (
     <div className='pokedex'>
-      <header className='header__pokedex'>
-        <img className='pokedex__img1' src={pokedexHeader} alt="" />
-        <img className='pokedex__img2' src={pokedex} alt="" />
-      </header>
-      <h1 className='pokedex__title'><span className='pokedex__span'>Welcome {nameTrainer},</span> here you can find your favorite pokemon</h1>
+      <HeaderPokedex />
+      <h1 className='pokedex__title'><span className='pokedex__span'>Welcome {nameTrainer},</span> Catch them all</h1>
       <section className='pokedex__input'>
         <SearchInput setPokeSearch={setPokeSearch} setOptionType={setOptionType} />
         <SelectType setPokeSearch={setPokeSearch} setOptionType={setOptionType} optionType={optionType} />
@@ -70,7 +68,7 @@ const Pokedex = () => {
       </div>
       <footer>
         <div>
-          <button>next</button>
+          
         </div>
       </footer>
     </div>
