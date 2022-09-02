@@ -5,17 +5,21 @@ import PokemonCard from './Pokedex/PokemonCard'
 import SearchInput from './Pokedex/SearchInput'
 import SelectType from './Pokedex/SelectType'
 import HeaderPokedex from './Pokedex/HeaderPokedex'
+import Pagination from './Pagination'
 
 
 const Pokedex = () => {
+  const nameTrainer = useSelector(state => state.nameTrainer)
 
   const [pokemons, setPokemons] = useState()
   const [pokeSearch, setPokeSearch] = useState()
   const [optionType, setOptionType] = useState('All')
+  const [currentBlock, setCurrentBlock] = useState(1)
+  const [page, setPage] = useState(0)
 
-  
 
-  const nameTrainer = useSelector(state => state.nameTrainer)
+
+
 
   useEffect(() => {
 
@@ -37,15 +41,13 @@ const Pokedex = () => {
       setPokemons(obj)
     } else {
       // aqui se hace la logica cuando el usuario quiere todos los pokemons
-      const URL = 'https://pokeapi.co/api/v2/pokemon'
-
+      const URL = `https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0`
       axios.get(URL)
         .then(res => setPokemons(res.data))
         .catch(err => console.log(err))
     }
-  }, [pokeSearch, optionType])
+  }, [pokeSearch, optionType, page])
 
-// console.log(pokemons)
 
 
   return (
@@ -53,12 +55,28 @@ const Pokedex = () => {
       <HeaderPokedex />
       <h1 className='pokedex__title'><span className='pokedex__span'>Welcome {nameTrainer},</span> Catch them all</h1>
       <section className='pokedex__input'>
-        <SearchInput setPokeSearch={setPokeSearch} setOptionType={setOptionType} />
-        <SelectType setPokeSearch={setPokeSearch} setOptionType={setOptionType} optionType={optionType} />
+        <SearchInput
+          setPokeSearch={setPokeSearch}
+          setOptionType={setOptionType}
+        />
+        <SelectType
+          setPokeSearch={setPokeSearch} 
+          setOptionType={setOptionType} 
+          optionType={optionType} 
+          setPage={setPage}
+          setCurrentBlock={setCurrentBlock}
+        />
       </section>
+      <Pagination
+          pokemons={pokemons}
+          page={page}
+          setPage={setPage}
+          currentBlock={currentBlock}
+          setCurrentBlock={setCurrentBlock}
+        />
       <div className='pokedex-container'>
         {
-          pokemons?.results.map(pokemon => (
+          pokemons?.results.slice(page * 10, (page + 1)*10).map(pokemon => (
             <PokemonCard
               key={pokemon.url}
               url={pokemon.url}
@@ -67,9 +85,13 @@ const Pokedex = () => {
         }
       </div>
       <footer>
-        <div>
-          
-        </div>
+        <Pagination
+          pokemons={pokemons}
+          page={page}
+          setPage={setPage}
+          currentBlock={currentBlock}
+          setCurrentBlock={setCurrentBlock}
+        />
       </footer>
     </div>
   )

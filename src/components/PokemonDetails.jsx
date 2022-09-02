@@ -17,7 +17,6 @@ const PokemonDetails = () => {
       .catch(err => console.log(err))
 
   }, [])
-  console.log(pokeDetails)
 
   return (
     <article className='poke-details'>
@@ -69,10 +68,7 @@ const PokemonDetails = () => {
           </ul>
         </div>
         <div className='stats'>
-          <div className='stats__title'>
-          <h2 >Stats </h2>
-          </div>
-          <img src={pokeball} alt="" />
+          <h2>Stats </h2>
         </div>
           
         <div >
@@ -86,12 +82,12 @@ const PokemonDetails = () => {
           }
         </div>
       </section>
-      <section>
-        <h2>Movements</h2>
-        <div>
+      <section className='poke-movements' >
+        <h2 className='stats'>Movements</h2>
+        <div className='poke-movements__move'>
           {
             pokeDetails?.moves.map(actions => (
-              <h4 key={actions.move.url}>{actions.move.name}</h4>
+              <h4 className='poke-movements__name' key={actions.move.url}>{actions.move.name}</h4>
             ))
           }
         </div>

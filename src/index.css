@@ -268,16 +268,13 @@
     margin-bottom: 1.5em;
 }
 
-.poke-details__type {
-
-}
-
 .poke-details__skill {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
     margin-top: 0.5em;
 }
+
 .type {
     color: #fff !important;
     width: 5em;
@@ -285,6 +282,7 @@
     padding-bottom: 0.2em;
     border-radius: 0.2em;
 }
+
 .skill {
     width: 6em;
     padding-top: 0.2em;
@@ -294,13 +292,15 @@
 }
 
 .stats {
-    /* margin-left: 2em;
-    margin-right: 1em; */
-    display: grid;
-    grid-template-columns: 0.8fr 0.2fr;
+    margin-left: 2em;
+    margin-top: 1em;
+    display: flex;
+    justify-content: left;
     align-items: center;
+
 }
-.stats__title::after {
+
+.stats::after {
     content: "";
     background-color: lightgray;
     width: 80%;
@@ -308,6 +308,7 @@
     margin-left: 1em;
     margin-right: 2em;
 }
+
 .progress-bar {
     margin-left: 2em;
     margin-bottom: 1em;
@@ -315,9 +316,10 @@
     width: 95%;
     height: 20px;
     background: linear-gradient(90deg, #FCD676 -2.25%, #E6901E 133.18%);
-    border-radius: 2em;
+    border-radius: 1em;
     overflow: hidden;
 }
+
 .progress-bar::before {
     content: '';
     position: absolute;
@@ -327,11 +329,70 @@
     transform: translateX(-100%);
     animation: fill-bar 0.8s 0.3s ease-in-out forwards;
 }
+
 :root {
     --fill-size: 0%;
 }
+
 @keyframes fill-bar {
-    to{
+    to {
         transform: translateX(var(--fill-size))
     }
+}
+
+.poke-movements {
+    margin-top: 2em;
+    width: 80%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.poke-movements__move {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em;
+}
+
+.poke-movements__name {
+    background-color: #E5E5E5;
+    border-radius: 50px;
+    padding: 5px 9px;
+    transition: transform 200ms ease;
+}
+
+.poke-movements__name:hover {
+    transition: transform 200ms ease;
+    transform: scale(1.25);
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: initial;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+}
+
+.pagination-container__h1 {
+    color: #FE1936;
+}
+.pagination-container__ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    color: #FE1936;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+.pagination-container__btn {
+    background-color: #D93F3F;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    cursor: pointer;
+
 }
